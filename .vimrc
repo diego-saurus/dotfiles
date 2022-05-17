@@ -5,6 +5,11 @@ nnoremap <C-l> :bn <CR>
 nnoremap <C-c> :bd <CR>
 nnoremap <silent> <C-p> :GFiles<CR>
 
+nmap <silent> <leader>y <Plug>WslCopy
+xmap <silent> <leader>y <Plug>WslCopy
+
+set encoding=UTF-8
+
 call plug#begin('~/.vim/plugged')
 	" Linter
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -15,16 +20,42 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   
   " Line
-  Plug 'itchyny/lightline.vim'
-  let g:lightline = {
-      \ 'colorscheme': 'sonokai',
-      \ }
-  Plug 'ap/vim-buftabline'
-  " Plug 'vim-airline/vim-airline'
-  " Plug 'vim-airline/vim-airline-themes'
-  " let g:airline#extensions#tabline#enabled = 1
-  " let g:airline#extensions#tabline#formatter = 'unique_tail'
-  " let g:airline_theme='sonokai'
+  " Plug 'itchyny/lightline.vim'
+  " let g:lightline = {
+  "     \ 'colorscheme': 'sonokai',
+  "     \ }
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#formatter = 'default'
+
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+
+  " unicode symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.colnr = ' ㏇:'
+  let g:airline_symbols.colnr = ' ℅:'
+  let g:airline_symbols.crypt = '🔒'
+  let g:airline_symbols.linenr = '☰'
+  let g:airline_symbols.linenr = ' ␊:'
+  let g:airline_symbols.linenr = ' ␤:'
+  let g:airline_symbols.linenr = '¶'
+  let g:airline_symbols.maxlinenr = ''
+  let g:airline_symbols.maxlinenr = '㏑'
+  let g:airline_symbols.branch = '⎇'
+  let g:airline_symbols.paste = 'ρ'
+  let g:airline_symbols.paste = 'Þ'
+  let g:airline_symbols.paste = '∥'
+  let g:airline_symbols.spell = 'Ꞩ'
+  let g:airline_symbols.notexists = 'Ɇ'
+  let g:airline_symbols.whitespace = 'Ξ'
+
+  let g:airline_theme='molokai'
   
   " Theme
   " Plug 'morhetz/gruvbox'
@@ -33,8 +64,9 @@ call plug#begin('~/.vim/plugged')
 
   " Icon
   Plug 'ryanoasis/vim-devicons'
-  
-	" NERD
+  Plug 'ap/vim-buftabline'
+
+  " NERD
 	Plug 'scrooloose/nerdtree'
   Plug 'preservim/nerdcommenter'
   Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -44,12 +76,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'maxmellon/vim-jsx-pretty'
 
-  " let g:vim_jsx_pretty_colorful_config = 1
+  let g:vim_jsx_pretty_colorful_config = 1
   " let g:vim_jsx_pretty_disable_tsx = 1
 
   " OTHERS
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 
+  Plug 'christianfosli/wsl-copy'
 
 call plug#end()
 
@@ -60,12 +93,13 @@ set wrap
 set number
 set background=dark
 set t_Co=256
-let g:sonokai_style = 'shusia'
-let g:sonokai_enable_italic = 1
+" let g:sonokai_style = 'shusia'
+" let g:sonokai_enable_italic = 1
 let g:sonokai_diagnostic_text_highlight = 1
-let g:sonokai_diagnostic_virtual_text = 'colored'
-let g:sonokai_better_performance = 1
+" let g:sonokai_diagnostic_virtual_text = 'colored'
+" let g:sonokai_better_performance = 1
 let g:sonokai_disable_italic_comment = 1
+let g:sonokai_transparent_background = 1
 colorscheme sonokai
 
 " Nerd Commenter
@@ -142,6 +176,7 @@ set expandtab
 " if exists("$TMUX")
 "     let &t_RB = "\ePtmux;\e\e]11;?\007\e\\"
 " endif
+set termguicolors
 
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
