@@ -74,9 +74,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(sudo zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-alias vim="nvim"
-alias ll="ls -a"
-alias die="wsl.exe --shutdown"
+source ~/.dotfiles/zsh/alias.sh
+source ~/.dotfiles/zsh/func.sh
 
 # User configuration
 

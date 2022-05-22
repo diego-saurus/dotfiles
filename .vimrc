@@ -88,6 +88,8 @@ call plug#end()
 
 " Appearance 
 syntax on
+syntax enable
+filetype plugin indent on
 set linebreak
 set wrap
 set number
@@ -186,7 +188,7 @@ endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Prettier CocCommand
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
