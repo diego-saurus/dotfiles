@@ -15,15 +15,13 @@ call plug#begin('~/.vim/plugged')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'jiangmiao/auto-pairs'
 
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
   "Version Control System (GIT)
   Plug 'airblade/vim-gitgutter'
-  Plug 'tpope/vim-fugitive'
+  " Plug 'tpope/vim-fugitive'
   
   " Line
-  " Plug 'itchyny/lightline.vim'
-  " let g:lightline = {
-  "     \ 'colorscheme': 'sonokai',
-  "     \ }
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   let g:airline#extensions#tabline#enabled = 1
@@ -58,9 +56,9 @@ call plug#begin('~/.vim/plugged')
   let g:airline_theme='molokai'
   
   " Theme
+  Plug 'sainnhe/sonokai'
   " Plug 'morhetz/gruvbox'
   " let g:gruvbox_contrast_dark = "hard"
-  Plug 'sainnhe/sonokai'
 
   " Icon
   Plug 'ryanoasis/vim-devicons'
@@ -72,9 +70,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
 
   " SYNTAX HIGHLIGHT
-  Plug 'yuezk/vim-js'
-  Plug 'HerringtonDarkholme/yats.vim'
-  Plug 'maxmellon/vim-jsx-pretty'
+  " Plug 'HerringtonDarkholme/yats.vim'
+  " Plug 'leafgarland/typescript-vim'
+  " Plug 'yuezk/vim-js'
+  " Plug 'maxmellon/vim-jsx-pretty'
+  " Plug 'pangloss/vim-javascript'
+  " Plug 'rust-lang/rust.vim'
 
   let g:vim_jsx_pretty_colorful_config = 1
   " let g:vim_jsx_pretty_disable_tsx = 1
@@ -88,19 +89,16 @@ call plug#end()
 
 " Appearance 
 syntax on
-syntax enable
-filetype plugin indent on
 set linebreak
 set wrap
 set number
-set background=dark
 set t_Co=256
 " let g:sonokai_style = 'shusia'
-" let g:sonokai_enable_italic = 1
+let g:sonokai_enable_italic = 1
 let g:sonokai_diagnostic_text_highlight = 1
-" let g:sonokai_diagnostic_virtual_text = 'colored'
-" let g:sonokai_better_performance = 1
-let g:sonokai_disable_italic_comment = 1
+let g:sonokai_diagnostic_virtual_text = 'colored'
+let g:sonokai_better_performance = 1
+" let g:sonokai_disable_italic_comment = 1
 let g:sonokai_transparent_background = 1
 colorscheme sonokai
 
@@ -179,16 +177,10 @@ set expandtab
 "     let &t_RB = "\ePtmux;\e\e]11;?\007\e\\"
 " endif
 set termguicolors
-
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Prettier CocCommand
-" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
@@ -351,3 +343,4 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+set re=0

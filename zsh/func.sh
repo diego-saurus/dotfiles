@@ -1,3 +1,3 @@
 glog(){
-  git log ${1:---all} --decorate --oneline --graph
+  git log ${1:-$(git rev-parse --abbrev-ref HEAD)} --decorate --oneline --graph
 }
