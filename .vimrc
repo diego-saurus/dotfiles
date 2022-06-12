@@ -87,8 +87,10 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+source ~/.dotfiles/lua/init.lua
+
 " Appearance 
-syntax on
+" syntax on
 set linebreak
 set wrap
 set number
