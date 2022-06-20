@@ -71,7 +71,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo zsh-autosuggestions zsh-syntax-highlighting fzf-zsh-plugin zsh-z)
+plugins=(
+  sudo 
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  fzf-zsh-plugin
+  zsh-z
+)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.dotfiles/zsh/alias.sh
@@ -109,3 +115,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source ~/.dotfiles/zsh/startup.sh
+
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
