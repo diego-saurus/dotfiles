@@ -77,6 +77,12 @@ plugins=(
   zsh-syntax-highlighting
   fzf-zsh-plugin
   zsh-z
+  yarn
+  archlinux
+  nvm
+  gitignore
+  # git-flow
+  # git-prompt
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,5 +122,7 @@ export NVM_DIR="$HOME/.nvm"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source ~/.dotfiles/zsh/startup.sh
+
+source ~/powerlevel10k.zsh-theme
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
