@@ -86,8 +86,8 @@ def remove_line(path, pattern):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("theme")
-    parser.add_argument("--ghostty-dir", type=Path, default=Path.home() / ".config/ghostty")
-    parser.add_argument("--zsh-dir", type=Path, default=Path.home() / ".oh-my-zsh/custom/themes")
+    parser.add_argument("--ghostty-dir", type=Path, default=Path.home() / ".config/dotfiles/ghostty")
+    parser.add_argument("--zsh-dir", type=Path, default=Path.home() / ".config/dotfiles/omz/themes")
     parser.add_argument("--zshrc", type=Path, default=Path.home() / ".zshrc")
     parser.add_argument("--no-activate", action="store_true")
     args = parser.parse_args()

@@ -17,10 +17,10 @@ python3 -I ./skills/add-terminal-theme/scripts/base46_term.py <theme>
 
 Writes:
 - `~/.config/ghostty/themes/<theme>`
-- `~/.oh-my-zsh/custom/themes/<theme>.zsh-theme`
+- `~/.config/omz/themes/<theme>.zsh-theme`
 
 Activates (skip with `--no-activate`):
-- `theme = <theme>` in `~/.config/ghostty/config`, and removes any `minimum-contrast` line
+- `theme = <theme>` in `~/.config/dotfiles/ghostty/config`, and removes any `minimum-contrast` line
 - `ZSH_THEME="<theme>"` in `~/.zshrc`
 
 It prints the 16 palette colors. Show them to the user.
@@ -45,11 +45,11 @@ It prints the 16 palette colors. Show them to the user.
 ## Verify
 
 1. `ghostty +show-config | grep -E '^(theme|background|foreground)'` must show the theme's background and foreground.
-2. If they differ, look for another config file that overrides them. On macOS, `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` loads after `~/.config/ghostty/config`. Tell the user which lines win; do not edit that file without asking.
-3. `zsh -n ~/.oh-my-zsh/custom/themes/<theme>.zsh-theme` must exit 0.
+2. If they differ, look for another config file that overrides them. On macOS, `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` loads after `~/.config/dotfiles/ghostty/config`. Tell the user which lines win; do not edit that file without asking.
+3. `zsh -n ~/.config/dotfiles/omz/themes/<theme>.zsh-theme` must exit 0.
 4. Tell the user to reload: `cmd+shift+,` in Ghostty, `exec zsh` in the shell.
 
 ## Common mistakes
 
-- Putting colors in `~/.config/ghostty/config` instead of a theme file. Colors set in the config override the theme.
-- Changing the prompt layout. The generated zsh theme copies the layout of `~/.oh-my-zsh/custom/themes/diegosaurus.zsh-theme`: a green or red arrow for the exit status, the directory in cyan, then `git:(branch)`. If the user changes that layout, update `zsh_theme()` in the script.
+- Putting colors in `~/.config/dotfiles/ghostty/config` instead of a theme file. Colors set in the config override the theme.
+- Changing the prompt layout. The generated zsh theme copies the layout of `~/.config/dotfiles/omz/themes/diegosaurus.zsh-theme`: a green or red arrow for the exit status, the directory in cyan, then `git:(branch)`. If the user changes that layout, update `zsh_theme()` in the script.
