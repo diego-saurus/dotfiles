@@ -3,6 +3,9 @@ Diegosaurus custom dotfiles
 Installation lists
 
 ```
+#Tmux
+ln -s -n ~/.config/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
 # Neovim
 ln -s -n ~/.config/dotfiles/nvim ~/.config/nvim
 
