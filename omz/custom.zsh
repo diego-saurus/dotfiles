@@ -1,4 +1,4 @@
-ZSH_THEME="rxyhn"
+ZSH_THEME="ashes"
 plugins=(git zoxide fzf fast-syntax-highlighting zsh-autosuggestions docker zsh-interactive-cd)
 
 # Alias

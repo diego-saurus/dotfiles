@@ -21,7 +21,7 @@ Writes:
 
 Activates (skip with `--no-activate`):
 - `theme = <theme>` in `~/.config/dotfiles/ghostty/config`, and removes any `minimum-contrast` line
-- `ZSH_THEME="<theme>"` in `~/.zshrc`
+- `ZSH_THEME="<theme>"` in `~/.config/dotfiles/omz/custom.zsh`
 
 It prints the 16 palette colors. Show them to the user.
 
